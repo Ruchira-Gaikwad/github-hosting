@@ -1,0 +1,184 @@
+
+
+<div class="padding">
+    <div class="row">
+        <div class="container d-flex justify-content-center">
+            <div class="col-md-6 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                               <b> <span>Apply for Loan!</span></b>
+                            </div>
+                            <div class="col-md-6 text-right" style="margin-top:-5px;">
+                            <img src="https://img.icons8.com/color/36/000000/visa.png">
+                            <img src="https://img.icons8.com/color/36/000000/mastercard.png">
+                            <img src="https://img.icons8.com/color/36/000000/amex.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="height:500px">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                <div class="row"> 
+                                <div class="col-md-6">                           
+                                <div class="form-group">
+                                <label for="numeric" class="control-label">Name</label>
+                                <input class="input-lg form-control" ngModel  name="Name" formControlName="Name"
+                                [ngClass]="{'is-invalid':submitted && h['Name'].errors}">
+                                <div *ngIf="h['Name'].touched && h['Name'].errors" class="text-danger">
+                                    <div *ngIf="h['Name'].errors['required']">Name is required</div>
+                                    <div *ngIf="h['Name'].errors['pattern']">Please enter valid name</div>
+                               </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6"> 
+                              <div class="form-group">
+                                <label for="numeric" class="control-label">Email</label>
+                                <input class="input-lg form-control" ngModel  name="Email" formControlName="Email"
+                                [ngClass]="{'is-invalid':submitted && h['Email'].errors}">
+                                <div *ngIf="h['Email'].touched && h['Email'].errors" class="text-danger">
+                                    <div *ngIf="h['Email'].errors['required']">Email is required</div>
+                                    <div *ngIf="h['Email'].errors['email']">Please Enter Valid Email Pattern</div>
+                               </div>
+                              </div>
+                            </div>
+                            </div>
+
+                    <div class="form-group" >
+                        <label for="cc-number" class="control-label">Mobile Number</label>
+                        <input  class="input-lg form-control cc-number"  placeholder="***********" name="MobileNo"  formControlName="MobileNo" maxlength="10"
+                        [ngClass]="{'is-invalid':submitted && h['MobileNo'].errors}" ngModel >
+                        <div *ngIf="h['MobileNo'].touched && h['MobileNo'].errors" class="text-danger">
+                            <div *ngIf="h['MobileNo'].errors['required']">Mobile number is required</div>
+                            <div *ngIf="h['MobileNo'].errors['pattern']">Mobile number should be 16 digit number</div>
+                          </div>
+                    </div>
+
+
+
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label style="margin-right: 1rem;">Nationality</label>
+                          <select class="input-lg form-control" formControlName="selectControl" [ngClass]="{'is-invalid':submitted && h['selectControl'].errors}">
+                              <option value="">Please select an option</option>
+                              <option *ngFor="let option of Nationality">{{ option }}</option>
+                            </select>
+                            <div *ngIf="h['selectControl'].touched && h['selectControl'].errors" class="text-danger">
+                              <div *ngIf="h['selectControl'].errors['required']">
+                                Please select an option.
+                              </div>
+                            </div>
+                      </div>
+                  </div>
+
+
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label style="margin-right: 1rem;">Gender</label>
+                      <select class="input-lg form-control" formControlName="selectControl" [ngClass]="{'is-invalid':submitted && h['selectControl'].errors}">
+                          <option value="">Please select an option</option>
+                          <option *ngFor="let option of Gender">{{ option }}</option>
+                        </select>
+                        
+                        <div *ngIf="h['selectControl'].touched && h['selectControl'].errors" class="text-danger">
+                          <div *ngIf="h['selectControl'].errors['required']">
+                            Please select an option.
+                          </div>
+                        </div>
+                  </div>
+              </div>
+            </div>
+                   
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                     <label for="cc-exp" class="control-label">Date of Birth</label>
+                     <input type="date" placeholder="Select Month and Year" class="input-lg form-control cc-exp"  ngModel  name="DOB" formControlName="DOB"
+                     [ngClass]="{'is-invalid':submitted && h['DOB'].errors}">
+                     <div *ngIf="h['DOB'].touched && h['DOB'].errors" class="text-danger">
+                         <div *ngIf="h['DOB'].errors['required']">Date is required</div>
+                       </div>
+                        </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cc-cvc" class="control-label">Age</label>
+                        <input  class="input-lg form-control cc-cvc"  placeholder="***" ngModel name="Age"  formControlName="Age" maxlength="3"
+                        [ngClass]="{'is-invalid':submitted && h['Age'].errors}">
+                        <div *ngIf="h['Age'].touched && h['Age'].errors" class="text-danger">
+                            <div *ngIf="h['Age'].errors['required']">Age is required</div>
+                           </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                      
+                   
+
+              
+                <div class="form-group">
+                    <label for="Address" class="control-label">Address</label>
+                    <input class="input-lg form-control" name="Add" formControlName="Add"
+                    [ngClass]="{'is-invalid':submitted && h['Add'].errors}" ngModel>
+                    <div *ngIf="h['Add'].touched && h['Add'].errors" class="text-danger">
+                        <div *ngIf="h['Add'].errors['required']">Address is required</div>
+                   </div>
+                  </div>
+                
+                
+                
+                  <div class="form-group">
+                    <label style="margin-right: 1rem;">Type of Loan</label>
+                    <select class="input-lg form-control" formControlName="select" [ngClass]="{'is-invalid':submitted && h['select'].errors}">
+                        <option value="">Please select an option</option>
+                        <option *ngFor="let l of Loan">{{ l }}</option>
+                      </select>
+                      
+                      <div *ngIf="h['select'].touched && h['select'].errors" class="text-danger">
+                        <div *ngIf="h['select'].errors['required']">
+                          Please select an option.
+                        </div>
+                      </div>
+                </div>
+
+                
+                <div class="form-group" >
+                  <label for="cc-number" class="control-label">Adhaar Card Number</label>
+                  <input  class="input-lg form-control cc-number"  placeholder="**** **** **** ****" name="Adhaar"  formControlName="Adhaar" maxlength="12"
+                  [ngClass]="{'is-invalid':submitted && h['Adhaar'].errors}" ngModel >
+                  <div *ngIf="h['Adhaar'].touched && h['Adhaar'].errors" class="text-danger">
+                      <div *ngIf="h['Adhaar'].errors['required']">Adhar Card number is required</div>
+                      <div *ngIf="h['Adhaar'].errors['pattern']">Adhar Card number should be 12 digit number</div>
+                    </div>
+              </div>
+                        
+                    <div class="form-group">
+                         <div class="m-t-20 text-center">
+                    <button class="btn btn-success btn-lg submit-btn form-control" type="submit">Submit</button>
+                         </div>
+                    </div>
+                </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+  
+  
+
+
+
+
+
